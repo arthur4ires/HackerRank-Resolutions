@@ -1,27 +1,3 @@
-"""
-#size 3
-
-----c----
---c-b-c--
-c-b-a-b-c
---c-b-c--
-----c----
-
-#size 5
-
---------e--------
-------e-d-e------
-----e-d-c-d-e----
---e-d-c-b-c-d-e--
-e-d-c-b-a-b-c-d-e
---e-d-c-b-c-d-e--
-----e-d-c-d-e----
-------e-d-e------
---------e--------
-
-ord('a') -> 97
-chr(97) -> a
-"""
 
 def getMedian(value):
     
@@ -39,21 +15,26 @@ def print_rangoli(sizeNumber):
     horizontalLine = (sizeNumber * 4) - 3
     
     for a in range(verticalLine):
-        
+        a += 1
+
         if getMedian(verticalLine) > a:
             chrVar = int(verticalLine/2)
         else:
             chrVar = int(verticalLine/2)
-            
-        print(chr(baseNumber + (chrVar)).center((horizontalLine-horizontalValue),'-'))
         
-        print(horizontalValue)
-        
+        abcValue = chr(baseNumber + (chrVar))
+
+        if (int(horizontalValue/4)) > 0:
+            abcValue = chr(baseNumber + (chrVar) - 1) + "-" + abcValue + "-" + chr(baseNumber + (chrVar) - 1) 
+
+        print(abcValue.center(horizontalLine-horizontalValue,'-'))
+
         if getMedian(verticalLine) > a:
             horizontalValue += 4
         else:
-            horizontalValue -= 4 
+            horizontalValue -= 4
        
 if __name__ == '__main__':
-    n = int(input())
+    #n = int(input())
+    n = 5
     print_rangoli(n)
