@@ -23,9 +23,11 @@ def print_rangoli(sizeNumber):
             chrVar = int(verticalLine/2)
         
         abcValue = chr(baseNumber + (chrVar))
+        x = int(horizontalValue/4)
 
-        if (int(horizontalValue/4)) > 0:
-            abcValue = chr(baseNumber + (chrVar) - 1) + "-" + abcValue + "-" + chr(baseNumber + (chrVar) - 1) 
+        for y in range(x):
+            y += 1 
+            abcValue = chr(baseNumber + (chrVar) - y) + "-" + abcValue + "-" + chr(baseNumber + (chrVar) - y) 
 
         print(abcValue.center(horizontalLine-horizontalValue,'-'))
 
